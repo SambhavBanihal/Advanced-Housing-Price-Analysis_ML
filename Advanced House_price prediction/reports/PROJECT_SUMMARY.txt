@@ -1,0 +1,64 @@
+Project: Ames Housing — preprocessing & baseline modeling
+
+FILES I HAVE NOW
+- train.csv (raw original train with SalePrice)
+- test.csv (raw original test without SalePrice)
+- eda_on_train.ipynb (EDA on train)
+- feature_eng_on_train.ipynb (feature engineering on train)
+- eda_feature_engineering on test.ipynb (EDA + feature engineering on test)
+- Feature selection.ipynb (feature selection on train)
+- test train compare and linear regression model.ipynb (alignment of train/test and baseline Linear Regression)
+- X_train_final.csv (processed + selected features for train, no SalePrice)
+- X_test_final.csv (processed + selected features for test, aligned with train)
+
+WHAT I DID
+1. Performed EDA on train (eda_on_train.ipynb).
+2. Did feature engineering on train (feature_eng_on_train.ipynb).
+3. Did EDA + feature engineering on test (eda_feature_engineering on test.ipynb).
+4. Carried out feature selection on train (Feature selection.ipynb).
+5. Compared train and test processed sets; ran baseline Linear Regression (test train compare and linear regression model.ipynb).
+6. Saved final processed CSVs (X_train_final.csv, X_test_final.csv).
+7. Extracted y_train from raw train.csv.
+
+WHAT I HAVE NOW
+- Features (X_train_final, X_test_final) aligned and numeric-only.
+- Target (y_train) available in notebook memory from raw train.csv.
+- Multiple notebooks documenting each step of the pipeline.
+
+DIRECTORY STRUCTURE
+project_root/
+├─ data/
+│  ├─ raw/
+│  │  ├─ train.csv
+│  │  ├─ test.csv
+│  ├─ processed/
+│  │  ├─ X_train_final.csv
+│  │  ├─ X_test_final.csv
+│  │  ├─ y_train.csv
+├─ notebooks/
+│  ├─ eda_on_train.ipynb
+│  ├─ feature_eng_on_train.ipynb
+│  ├─ eda_feature_engineering_on_test.ipynb
+│  ├─ Feature_selection.ipynb
+│  ├─ test_train_compare_and_linear_regression.ipynb
+├─ models/
+│  ├─ baseline_model.joblib
+│  ├─ tuned_model.joblib
+├─ artifacts/
+│  ├─ scaler.pkl
+│  ├─ label_encoders.pkl
+│  ├─ rare_category_map.pkl
+│  ├─ train_medians.pkl
+├─ reports/
+│  ├─ PROJECT_SUMMARY.txt
+└─ README.md
+
+FUTURE IMPROVEMENTS / NEXT STEPS
+1. Train advanced models (RandomForest, XGBoost, LightGBM, CatBoost).
+2. Hyperparameter tuning (GridSearchCV, RandomizedSearchCV, or Optuna).
+3. Consider log-transforming SalePrice to improve RMSE.
+4. Explore feature interactions (e.g., Neighborhood × OverallQual).
+5. Package preprocessing into a Pipeline and save artifacts for reproducibility.
+6. Evaluate models using cross-validation, not only one train/val split.
+7. Perform residual analysis to spot systematic errors (e.g., by neighborhood).
+8. Finalize model: train on full train set, predict on X_test_final, prepare submission.csv with Ids from raw test.csv.
